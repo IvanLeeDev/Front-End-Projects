@@ -30,4 +30,12 @@ xhr.send('fname=Henry&lname=Ford');
 
 8.responseXML:服务器返回的XML/HTML对象，可以直接用DOM方法解析。
 
+9.Ajax get请求的URL地址可以是无参数(check.php)和有参数(check.php?name=xiaotu&password=123456)。
+
+10.如果用form表单的get方法提交，假如action="./login_get.php",则跳转后的页面url为"login_get.php?name=xiaotugou&password=123123"。
+
+11.如果用form表单的post方法提交，假如action="./login_get.php",则跳转后的页面url还是为"login_get.php"。
+
+12.如果用ajax get处理相当于form表单的get方法提交，则需要在ajax请求的url中组装好url，如'check.php?name=' + user + '&password=' + password;
+
 
