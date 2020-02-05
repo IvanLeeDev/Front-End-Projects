@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax_1</title>
+</head>
+<body>
+<button>点我显示欢迎语</button>
+<h2></h2>
+
+<script>
+    var btn = document.getElementsByTagName('button')[0];
+
+    btn.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                document.getElementsByTagName('h2')[0].innerHTML = this.responseText;
+            }
+        };
+        xhr.open('get', './ajax_1.php', true);
+        xhr.send(null);
+    }
+</script>
+</body>
+</html>

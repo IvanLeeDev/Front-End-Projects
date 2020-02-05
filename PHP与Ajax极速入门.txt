@@ -23,3 +23,11 @@ xhr.send(null);
 xhr.open('POST', '/try/ajax/demo.post.php', true);
 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 xhr.send('fname=Henry&lname=Ford');
+
+6.setRequestHeader()必须在open()和send()之间调用，常用于POST调用。
+
+7.responseText: 服务器返回的字符串，包括纯文本和JSON数据等。
+
+8.responseXML:服务器返回的XML/HTML对象，可以直接用DOM方法解析。
+
+
