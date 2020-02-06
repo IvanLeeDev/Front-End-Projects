@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login_get</title>
+</head>
+<body>
+<div align="center">
+    <h3>用户登录</h3>
+    <form action="./login_post.php" method="post">
+        <p>账号：<input type="text" name="name" id="name"></p>
+        <p>密码：<input type="password" name="password" id="password"></p>
+        <p><input type="submit" id="submit" value="提交"></p>
+        <h2 id="tips"></h2>
+    </form>
+</div>
+
+<script>
+    var sumbit = document.querySelector('#submit');
+    submit.onclick = function () {
+        //1.创建Ajax对象
+        var xhr = new XMLHttpRequest();
+        //2.创建请求事件的监听
+        xhr.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                console.log(this.responseText);
+
+                var data = JSON.parse(this.responseText);
+                var tips = document.querySelector('#tips');
+                tips.innerHTML = '欢迎用户' + data.name + '回来';
+            }
+        };
+        //3.初始化一个url请求
+        var user = document.querySelector('#name').value;
+        var password = document.querySelector('#password').value;
+        var data = 'name=' + user + '&password=' + password;//生成post请求的数据
+        var url = './login_post.php';
+        xhr.open('post', url, true);
+        //4.设置请求头
+        xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
+        //5.发送url请求,需要传入参数
+        xhr.send(data);
+
+        return false; //禁止提交按钮的默认行为
+    }
+</script>
+</body>
+</html>

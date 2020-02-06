@@ -1,6 +1,6 @@
 1.凡是能发送URL请求的，都是客户端，可以是软件(浏览器)、命令(终端工具)和一段代码(Ajax)。
 
-2.Ajax：异步的JavaScript和XML，是用js写的一段代码，可以代替服务器向浏览器发出请求，
+2.Ajax：异步的JavaScript和XML，是用js写的一段代码，可以代替浏览器向服务器发出请求，
 并可以处理返回的数据。
 
 3.Ajax脚本接管浏览器地址栏发出的URL请求，并向服务器发出URL请求，因为这个请求是异步的，
@@ -10,12 +10,12 @@
 
 5.
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'www.baidu.com?t=' + Math.random());
 xhr.onreadystatechange = function(response){
 	if(this.readyState === 4 && this.status === 200){
 		console.log(response)
 	}
 }
+xhr.open('GET', 'www.baidu.com?t=' + Math.random());
 xhr.send(null);
 ---------
 如果需要像表单那样POST数据，可以使用setRequestHeader()来添加HTTP头，然后在send()方法中规定
@@ -38,4 +38,4 @@ xhr.send('fname=Henry&lname=Ford');
 
 12.如果用ajax get处理相当于form表单的get方法提交，则需要在ajax请求的url中组装好url，如'check.php?name=' + user + '&password=' + password;
 
-
+13.如果用get方式向服务器传递数据，数据是必需写在url参数中的，这种方式既不安全有限制数据的大小，如果想安全的传递大量数据，就要用post方式。
