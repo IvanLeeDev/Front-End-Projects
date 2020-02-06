@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>showHint</title>
+</head>
+<body>
+
+<h3>在输入框中尝试输入字母:a</h3>
+<form action="">
+    <p>输入姓名：<input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+</form>
+<p>提示信息: <span id="tips"></span></p>
+
+<script>
+    function showHint(value) {
+        var xhr,
+            tips = document.querySelector('#tips');
+
+        if(value.length === 0) {
+            tips.innerHTML = '没有匹配的提示。';
+            return false;
+        }
+
+        if(window.XMLHttpRequest){
+            //IE7+, Firefox, Chrome,Opera, Safari浏览器代码
+            xhr = new XMLHttpRequest();
+        }else {
+            //IE6, IE5浏览器代码
+            xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        xhr.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                tips.innerHTML = this.responseText;
+            }
+        };
+
+        var url = './showHint.php?letter=' + value;
+        xhr.open('get', url, true);
+
+        xhr.send(null);
+    }
+</script>
+</body>
+</html>
