@@ -11,6 +11,7 @@
 4.同步和异步的区别就是客户端和服务器端是否在处理同一个请求。
 
 5.
+```
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(response){
 	if(this.readyState === 4 && this.status === 200){
@@ -19,13 +20,15 @@ xhr.onreadystatechange = function(response){
 }
 xhr.open('GET', 'www.baidu.com?t=' + Math.random());
 xhr.send(null);
+```
 ---------
 如果需要像表单那样POST数据，可以使用setRequestHeader()来添加HTTP头，然后在send()方法中规定
 你希望发送的数据，如下：
+```
 xhr.open('POST', '/try/ajax/demo.post.php', true);
 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 xhr.send('fname=Henry&lname=Ford');
-
+```
 6.setRequestHeader()必须在open()和send()之间调用，常用于POST调用。
 
 7.responseText: 服务器返回的字符串，包括纯文本和JSON数据等。
