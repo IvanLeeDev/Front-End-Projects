@@ -40,7 +40,7 @@ echo '<hr>';
 echo '循环遍历结果集：<br>';
 $rows = [];
 
-//mysqli_num_rows()函数的第二个参数可以是MYSQLI_ASSOC、MYSQLI_NUM和MYSQLI_BOTH(默认的)
+//mysqli_fetch_array()函数的第二个参数可以是MYSQLI_ASSOC、MYSQLI_NUM和MYSQLI_BOTH(默认的)
 
 if($result && mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
