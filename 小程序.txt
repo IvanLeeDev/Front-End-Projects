@@ -1,0 +1,30 @@
+
+1.小程序是一种不需要下载安装即可使用的应用。
+
+2.小程序是跨平台的(只要手机[苹果＋安卓]安装微信即可使用)。
+
+3.开发流程：
+3.1 注册小程序账号(https://mp.weixin.qq.com/wxopen/waregister?action=step1)
+3.2 下载开发者工具(https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+3.3 开发
+3.4 上线
+
+4.小程序要求的接口地址必须是https加密协议。
+
+5.目录结构
+pages 小程序的页面
+utils 工具包
+app.js 逻辑代码区
+app.json 小程序配置
+app.wxss 小程序的样式文件
+project.config.json 项目的配置文件
+
+6.小程序会默认打开pages中第一个页面内容。
+
+7.小程序中使用view元素布局，不要使用div元素。
+
+8.关于配置和样式的优先级(就近原则，离谁近，谁就生效)。
+
+9.关于小程序尺寸单位
+`rpx`  整个屏幕的总宽度是750rpx(一般app设计稿的宽度就是750，即量出来多少就给多少。)
+1px == 2rpx (iphone6s宽度为375px)
